@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     ViteSitemap({
-      hostname: "",
+      hostname: "https://devisriprasadastro.in",
     }),
   ],
   resolve: {

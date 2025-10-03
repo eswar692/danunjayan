@@ -1,6 +1,5 @@
 import { MenuIcon, MessageCircle, Phone, X } from "lucide-react";
 import { useState } from "react";
-import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import { company_name, phone_number, whatsapp_number } from "./secrete";
 
@@ -16,19 +15,19 @@ const Header = () => {
 
 export default Header;
 
-const Title = () => (
-  <div className="flex flex-row w-full md:flex-row items-center justify-between gap-4">
-    <h5 className="montserrat font-semibold text-gray-200 text-center md:text-left text-sm md:text-base">
-      ✨ Any Problem? Connect with us
-    </h5>
-    <a
-      href={`tel://${phone_number}`}
-      className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold rounded-full shadow-xl transition-transform duration-300 hover:scale-105 montserrat text-sm"
-    >
-      Call Now
-    </a>
-  </div>
-);
+// const Title = () => (
+//   <div className="flex flex-row w-full md:flex-row items-center justify-between gap-4">
+//     <h5 className="montserrat font-semibold text-gray-200 text-center md:text-left text-sm md:text-base">
+//       ✨ Any Problem? Connect with us
+//     </h5>
+//     <a
+//       href={`tel://${phone_number}`}
+//       className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold rounded-full shadow-xl transition-transform duration-300 hover:scale-105 montserrat text-sm"
+//     >
+//       Call Now
+//     </a>
+//   </div>
+// );
 
 const Logo = () => (
   <div className="relative w-full flex flex-row md:flex-row items-center justify-between gap-0 md:gap-2 bg-gray-900 p-1 py-3 md:p-6 ">
@@ -183,27 +182,21 @@ const MobileMenu = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
   );
 };
 
-const TextMarquee = () => (
-  <div
-    className="overflow-hidden
- bg-gradient-to-l from-green-300 via-blue-300 to-orange-300
+// const TextMarquee = () => (
+//   <div
+//     className="overflow-hidden
+//  bg-gradient-to-l from-green-300 via-blue-300 to-orange-300
 
-
-
-
-
-
-
-"
-  >
-    <Marquee
-      speed={50}
-      className="whitespace-nowrap text-black  py-2 open-sans text-md md:text-base tracking-wide"
-    >
-      🌙 Facing issues like Love Breakup, Marriage Disputes, Relationship
-      Conflicts, or wanting to Get Your Love Back? 🔮 Consult for Vashikaran
-      solutions to attract your desired partner or resolve personal issues.
-      Contact a trusted Astrologer today.
-    </Marquee>
-  </div>
-);
+// "
+//   >
+//     <Marquee
+//       speed={50}
+//       className="whitespace-nowrap text-black  py-2 open-sans text-md md:text-base tracking-wide"
+//     >
+//       🌙 Facing issues like Love Breakup, Marriage Disputes, Relationship
+//       Conflicts, or wanting to Get Your Love Back? 🔮 Consult for Vashikaran
+//       solutions to attract your desired partner or resolve personal issues.
+//       Contact a trusted Astrologer today.
+//     </Marquee>
+//   </div>
+// );

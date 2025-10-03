@@ -28,7 +28,7 @@ const VideoView = () => {
           worldwide.
         </p>
 
-        <div className="mt-6 flex flex-col sm:flex-row gap-4 flex-row">
+        <div className="mt-6 flex sm:flex-row gap-4 flex-row">
           <a
             href={`tel:${phone_number}`}
             className="flex items-center gap-2 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300"

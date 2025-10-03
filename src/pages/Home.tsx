@@ -7,12 +7,10 @@ import {
   MessageCircle,
   Sparkles,
 } from "lucide-react";
-import Carousel from "../Genaral/Carousel";
 import { motion } from "framer-motion";
 import Testimonials from "../Genaral/Testimonial";
 import FAQ from "../Genaral/FAQ";
 import CardCarousel from "../Genaral/CardsCarousel";
-import ImageGrid from "../Genaral/ImageGrid";
 import {
   company_name,
   person_name,

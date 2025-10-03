@@ -1,6 +1,6 @@
 import { Mail, Phone } from "lucide-react"; // icons
 import Form from "../Genaral/Form";
-import { email, phone_number, whatsapp_number } from "../Genaral/secrete";
+import { phone_number, whatsapp_number } from "../Genaral/secrete";
 
 export default function Contact() {
   return (

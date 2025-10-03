@@ -1,7 +1,6 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback } from "react";
 import { Quote } from "lucide-react";
 import { person_name } from "./secrete";
 
