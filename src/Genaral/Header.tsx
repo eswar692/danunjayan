@@ -48,7 +48,7 @@ const Logo = () => (
 
       <div className="flex flex-col text-center md:text-left ">
         <h1 className="px-2 montserrat font-extrabold text-2xl md:text-3xl text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 drop-shadow-lg text-white">
-          {company_name} Center
+          {company_name}
         </h1>
         <p className="open-sans text-sm md:text-base text-gray-300 italic -mt-1">
           Since 1950

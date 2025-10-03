@@ -5,7 +5,7 @@ const VideoView = () => {
     <div className="relative w-full h-[450px] overflow-hidden rounded-none mb-2">
       {/* Video Background */}
       <video
-        src="fb9b120cb8608fc1fa9e08379ead50b1_720w.mp4"
+        src="dfa6d1203db3f9185624079ff11b737b.mp4"
         autoPlay
         loop
         muted
