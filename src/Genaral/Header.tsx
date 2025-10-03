@@ -1,17 +1,15 @@
-import { MenuIcon, X } from "lucide-react";
+import { MenuIcon, MessageCircle, Phone, X } from "lucide-react";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-import { company_name, phone_number } from "./secrete";
+import { company_name, phone_number, whatsapp_number } from "./secrete";
 
 const Header = () => {
   return (
-    <header className="w-full bg-gradient-to-r from-pink-600 via-rose-500 to-purple-300 shadow-2xl">
-      <div className="p-4 md:w-[85%] mx-auto flex flex-col gap-6">
-        <Title />
+    <header className="w-full bg-gray-900">
+      <div className="w-full md:w-[85%] mx-auto flex flex-col gap-6   ">
         <Logo />
       </div>
-      <TextMarquee />
     </header>
   );
 };
@@ -33,29 +31,43 @@ const Title = () => (
 );
 
 const Logo = () => (
-  <div className="flex flex-row md:flex-row items-center justify-between gap-6">
+  <div className="relative w-full flex flex-row md:flex-row items-center justify-between gap-0 md:gap-2 bg-gray-900 p-1 py-3 md:p-6 ">
     {/* Logo + Text */}
-    <div className="flex items-center gap-4">
-      <img
-        src="https://i.pinimg.com/1200x/2c/a6/9a/2ca69a5542fc313ee2f792430ad54108.jpg"
-        alt="Logo"
-        className="w-20 h-20 md:w-24 md:h-24 rounded-2xl shadow-2xl border-4 border-yellow-500"
-      />
-      <div className="flex flex-col text-center md:text-left">
-        <h1 className="montserrat font-bold text-2xl md:text-3xl text-yellow-400 drop-shadow-lg">
+    <div className=" w-[85%] flex items-center gap-1 md:gap-8">
+      {/*
+      <div className=" w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-2xl ">
+        <video
+          src="fb9b120cb8608fc1fa9e08379ead50b1_720w.mp4" // your video path
+          autoPlay
+          loop
+          muted
+          className="border-2 border-purple-500 absolute w-[90px] h-[80px] object-cover rounded-xl transform hover:scale-105 transition-transform duration-500"
+        />
+
+      </div>
+       */}
+
+      <div className="flex flex-col text-center md:text-left ">
+        <h1 className="px-2 montserrat font-extrabold text-2xl md:text-3xl text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 drop-shadow-lg text-white">
           {company_name} Center
         </h1>
-        <p className="open-sans text-sm md:text-base text-gray-300 -mt-1 italic">
+        <p className="open-sans text-sm md:text-base text-gray-300 italic -mt-1">
           Since 1950
         </p>
-        <p className="open-sans text-xs md:text-sm text-gray-200 mt-1 poppins max-w-[280px]">
-          Best astrology services for accurate and personalized guidance
+        <p className="open-sans text-xs md:text-sm text-gray-400 mt-1 poppins max-w-[300px] leading-snug">
+          Best astrology services for{" "}
+          <span className="text-purple-400 font-semibold">accurate</span> and{" "}
+          <span className="text-pink-400 font-semibold">
+            personalized guidance
+          </span>
         </p>
       </div>
     </div>
 
     {/* Menu */}
-    <Menu />
+    <div className="w-[15%] flex justify-center items-center mt-4 md:mt-0">
+      <Menu />
+    </div>
   </div>
 );
 
@@ -73,7 +85,7 @@ const Menu = () => {
 
       {/* Mobile menu button */}
       <button
-        className="lg:hidden p-2 border rounded bg-gradient-to-r from-yellow-500 to-yellow-700 shadow-lg transition duration-300"
+        className="lg:hidden p-2 border rounded bg-orange-500 transition duration-300"
         onClick={() => setOpen(!open)}
       >
         <MenuIcon className="w-6 h-6 text-white" strokeWidth={2} />
@@ -99,11 +111,17 @@ const NavLink = ({
   </Link>
 );
 
-const MobileMenu = ({ setOpen }: { setOpen: (open: boolean) => void }) => (
-  <div className="fixed top-0 left-0 w-full h-full z-50 bg-gradient-to-b from-purple-900 to-purple-800 p-8 flex flex-col justify-between shadow-2xl">
-    <div>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="montserrat text-2xl font-bold text-yellow-400">
+const MobileMenu = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
+  return (
+    <div
+      className="fixed top-0 left-0 w-full h-full z-5000 bg-gradient-to-tr from-red-900 via-pink-900 to-yellow-900
+
+
+ p-8 flex flex-col justify-between shadow-2xl overflow-y-auto"
+    >
+      {/* Top Section: Logo + Close */}
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="montserrat text-2xl font-bold text-yellow-400 drop-shadow-lg">
           {company_name} Center
         </h1>
         <button
@@ -113,26 +131,57 @@ const MobileMenu = ({ setOpen }: { setOpen: (open: boolean) => void }) => (
           <X className="w-6 h-6 text-white" />
         </button>
       </div>
-      <ul className="flex flex-col gap-6 font-medium montserrat text-lg text-gray-100">
-        {["Home", "About", "Services", "Contact"].map((item) => (
-          <Link
-            key={item}
-            to={`/${item.toLowerCase()}`}
-            onClick={() => setOpen(false)}
-          >
-            <li className="hover:text-yellow-400 cursor-pointer">{item}</li>
-          </Link>
-        ))}
+
+      {/* Navigation Links */}
+      <ul className="flex flex-col gap-6 font-medium montserrat text-lg text-gray-100 mb-8">
+        {["Home", "About", "Services", "Testimonials", "Contact"].map(
+          (item) => (
+            <Link
+              key={item}
+              to={`/${item.toLowerCase()}`}
+              onClick={() => setOpen(false)}
+            >
+              <li className="hover:text-yellow-400 cursor-pointer transition-colors">
+                {item}
+              </li>
+            </Link>
+          )
+        )}
       </ul>
+
+      {/* Empty Space Section → Add Call / WhatsApp Buttons */}
+      <div className="flex flex-col gap-4 mb-8">
+        <p className="text-gray-200 font-semibold text-center">
+          Need Immediate Help? Contact Us Now!
+        </p>
+        <div className="flex justify-center gap-4">
+          <a
+            href={`tel:${phone_number}`}
+            className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform font-semibold"
+          >
+            <Phone size={18} /> Call
+          </a>
+          <a
+            href={`https://wa.me/${whatsapp_number}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform font-semibold"
+          >
+            <MessageCircle size={18} /> WhatsApp
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom Section: Company info */}
+      <p className="open-sans text-gray-300 text-sm text-center">
+        <b className="text-yellow-400">{company_name} Center</b> - Trusted
+        astrology services since 1950. Horoscope readings, match-making, career
+        predictions, and spiritual remedies to guide you through life with
+        confidence.
+      </p>
     </div>
-    <p className="open-sans text-gray-300 text-sm mt-6">
-      <b className="text-yellow-400">{company_name} Center</b> - Trusted
-      astrology services since 1950. Horoscope readings, match-making, career
-      predictions, and spiritual remedies to guide you through life with
-      confidence.
-    </p>
-  </div>
-);
+  );
+};
 
 const TextMarquee = () => (
   <div

@@ -1,10 +1,10 @@
 const phone_number = "9353410710";
 const email = "";
 const whatsapp_number = "919353410710";
-const company_name = "Astro Honest";
-const person_name = "Raghavendra Guruji";
+const company_name = "Devi Sri Prasad Astro Center";
+const person_name = "Devi Sri Prasad";
 const address = "";
-const website_url = "https://www.astrohonest.com";
+const website_url = "https://www.devisriprasadastro.com";
 
 export {
   phone_number,

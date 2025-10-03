@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     ViteSitemap({
-      hostname: "https://astrohonest.com",
+      hostname: "",
     }),
   ],
   resolve: {
@@ -19,7 +19,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: true, // OR '0.0.0.0'
+    host: "0.0.0.0",
     port: 5100,
   },
 });

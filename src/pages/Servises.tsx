@@ -49,58 +49,56 @@ const services = [
   },
 ];
 
-const reverse = services.reverse();
-
 export default function Services() {
   return (
-    <div className="relative bg-gradient-to-br from-orange-100 via-yellow-50 to-white py-20 px-6">
-      {/* Decorative Gradient Background Circles */}
-      <div className="absolute top-10 left-10 w-48 h-48 bg-orange-300/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-20 w-60 h-60 bg-yellow-400/20 rounded-full blur-3xl"></div>
+    <div className="relative bg-gradient-to-br from-purple-100 via-sky-50 to-white py-24 px-6 overflow-hidden">
+      {/* Decorative Background Glow Circles */}
+      <div className="absolute top-10 -left-16 w-72 h-72 bg-fuchsia-300/30 rounded-full blur-[100px] z-0"></div>
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-cyan-300/30 rounded-full blur-[120px] z-0"></div>
 
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
-        <h2 className="text-5xl font-extrabold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent drop-shadow montserrat">
+      <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
+        <h2 className="text-5xl font-extrabold bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent drop-shadow-lg tracking-tight">
           Our Astrology Services
         </h2>
-        <p className="text-gray-700 mt-6 text-lg leading-relaxed roboto">
-          Explore our premium astrology services crafted to guide you towards{" "}
-          <span className="font-semibold text-orange-600">peace, clarity</span>{" "}
-          and <span className="font-semibold text-red-600">solutions</span> for
-          a fulfilling life.
+        <p className="text-gray-700 mt-6 text-lg md:text-xl leading-relaxed">
+          Discover our expert services designed to guide you with{" "}
+          <span className="font-semibold text-violet-600">wisdom</span>,{" "}
+          <span className="font-semibold text-pink-600">peace</span>, and{" "}
+          <span className="font-semibold text-sky-600">clarity</span> in life.
         </p>
       </div>
 
-      {/* Cards */}
+      {/* Services Grid */}
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
-        {reverse.map((service, idx) => (
+        {services.map((service, idx) => (
           <div
             key={idx}
-            className="group relative bg-white/60 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-orange-200 hover:shadow-2xl hover:-translate-y-2 transition transform duration-300"
+            className="group relative bg-white/50 backdrop-blur-xl rounded-3xl ring-1 ring-violet-200 shadow-2xl overflow-hidden transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
           >
             {/* Image */}
             <div className="relative h-60 overflow-hidden">
               <img
                 src={service.img}
                 alt={service.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
 
             {/* Content */}
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-2xl font-bold text-orange-700 mb-3 montserrat">
+            <div className="p-6 flex flex-col h-full">
+              <h3 className="text-2xl font-bold text-violet-700 mb-3">
                 {service.name}
               </h3>
-              <p className="text-gray-600 flex-grow roboto leading-relaxed">
+              <p className="text-gray-600 flex-grow leading-relaxed">
                 {service.desc}
               </p>
 
               {/* Buttons */}
-              <div className="mt-6 flex gap-4 roboto">
+              <div className="mt-6 flex gap-3">
                 <a href={`tel:${phone_number}`} className="flex-1">
-                  <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-4 py-2 rounded-xl transition shadow-lg">
+                  <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-700 hover:to-pink-700 text-white px-4 py-2 rounded-xl shadow-md transition">
                     <Phone size={18} /> Call
                   </button>
                 </a>
@@ -110,7 +108,7 @@ export default function Services() {
                   rel="noopener noreferrer"
                   className="flex-1"
                 >
-                  <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-2 rounded-xl transition shadow-lg">
+                  <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-4 py-2 rounded-xl shadow-md transition">
                     <MessageCircle size={18} /> WhatsApp
                   </button>
                 </a>

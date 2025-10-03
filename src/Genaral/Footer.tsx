@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Phone, MessageCircle } from "lucide-react";
 import useInViewOnce from "./InView";
 import {
   company_name,
@@ -29,97 +29,91 @@ export default function Footer() {
   ];
 
   return (
-    <motion.footer className="relative text-white  pt-5 pb-15 w-full">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-90 "
-        style={{
-          backgroundImage:
-            "url('https://i.pinimg.com/736x/77/87/96/778796657af9ce12a7d76377e80a97da.jpg')",
-        }}
-      ></div>
+    <motion.footer className="z-99 mt-2  relative text-white pt-20 w-full overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-black">
+      {/* Floating Glow Background */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-400/10 rounded-full blur-3xl animate-ping"></div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/65"></div>
-
-      {/* Content */}
       <motion.div
         ref={ref}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }}
+        initial={{ y: 40, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
-        className="mb-[100px]  w-[80%] relative grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto "
+        className="relative max-w-7xl mx-auto px-6 py-5 grid grid-cols-1 md:grid-cols-4 gap-10"
       >
         {/* About */}
-        <div className="space-y-3">
-          <h2 className="font-extrabold text-3xl mb-2 montserrat text-red-700 tracking-wide drop-shadow-md">
+        <div className="space-y-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl shadow-pink-400/40 transition">
+          <h2 className="font-extrabold text-2xl montserrat text-pink-400 tracking-wide">
             About {company_name}
           </h2>
-          <p className="text-base open-sans text-white leading-relaxed">
-            <b className="text-red-600">{company_name}</b> is ranked as one of
-            South India's Top 5 Astrologers. Using exceptional astrological
-            skills, Dr. Sri <span className="font-semibold">{person_name}</span>
-            helps clients understand themselves, their goals, aspirations,
-            constraints, and potential.
+          <p className="text-sm open-sans text-gray-200 leading-relaxed">
+            <b className="text-yellow-400">{company_name}</b> is one of South
+            India’s Top Astrologers. With deep expertise,{" "}
+            <span className="font-semibold">{person_name}</span> guides clients
+            to achieve clarity in love, career, marriage & life.
           </p>
         </div>
 
         {/* Contact */}
-        <div className="px-3 space-y-2">
-          <h2 className="font-bold text-xl mb-2 montserrat text-yellow-600 tracking-wide">
+        <div className="space-y-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl shadow-purple-400/40 transition">
+          <h2 className="font-bold text-2xl montserrat text-yellow-400 tracking-wide">
             Contact Us
           </h2>
-          <p className="open-sans text-white flex items-center gap-2">
-            📞 <span className="font-medium ">{phone_number}</span>
+          <p className="flex items-center gap-2 text-gray-200">
+            <Phone className="w-5 h-5 text-pink-400" />
+            {phone_number}
           </p>
-          <p className="open-sans text-white flex items-center gap-2">
-            💬 <span className="font-medium ">{whatsapp_number}</span>
+          <p className="flex items-center gap-2 text-gray-200">
+            <MessageCircle className="w-5 h-5 text-green-400" />
+            {whatsapp_number}
           </p>
-          <p className="mt-2 font-bold montserrat text-yellow-300 text-lg drop-shadow-sm">
-            Best Astro Guidance
+          <p className="mt-4 font-bold montserrat text-pink-300 text-lg">
+            Best Astro Guidance 🌟
           </p>
-          <p className="text-sm open-sans  tracking-wide uppercase">
-            AUTHENTIC | RELIABLE | GENUINE | SUPPORTIVE
+          <p className="text-xs text-gray-300 tracking-wider uppercase">
+            Authentic | Reliable | Genuine | Supportive
           </p>
         </div>
 
         {/* Services */}
-        <div className="space-y-2">
-          <h2 className="font-bold text-xl mb-2 montserrat text-red-600 tracking-wide">
+        <div className="space-y-3 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl shadow-yellow-400/40 transition">
+          <h2 className="font-bold text-2xl montserrat text-pink-400 tracking-wide">
             Our Services
           </h2>
-          <ul className="text-sm space-y-2 open-sans ">
+          <ul className="text-sm space-y-2 open-sans">
             {services.map((service, idx) => (
               <li
                 key={idx}
-                className="flex items-center gap-2 hover:text-red-500 transition-colors duration-300"
+                className="flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
               >
-                <ChevronRight className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                <span className="font-medium">{service}</span>
+                <ChevronRight className="w-4 h-4 text-pink-400 flex-shrink-0" />
+                {service}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Why Choose */}
-        <div className="space-y-2">
-          <h2 className="font-bold text-xl mb-2 montserrat text-red-600 tracking-wide">
+        {/* Why Choose Us */}
+        <div className="space-y-3 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl shadow-red-400/40 transition">
+          <h2 className="font-bold text-2xl montserrat text-yellow-400 tracking-wide">
             Why Choose Us?
           </h2>
-          <ul className="text-sm space-y-2 open-sans ">
+          <ul className="text-sm space-y-2 open-sans">
             {whyChoose.map((item, idx) => (
               <li
                 key={idx}
-                className="flex items-center gap-2 hover:text-red-500 transition-colors duration-300"
+                className="flex items-center gap-2 hover:text-pink-400 transition-colors duration-300"
               >
-                <ChevronRight className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                <span className="font-medium">{item}</span>
+                <ChevronRight className="w-4 h-4 text-yellow-300 flex-shrink-0" />
+                {item}
               </li>
             ))}
           </ul>
         </div>
       </motion.div>
-      {/* copy right and my contact */}
+
+      {/* Copyright */}
+
       <CopyRightAndContact />
     </motion.footer>
   );
@@ -127,36 +121,34 @@ export default function Footer() {
 
 const CopyRightAndContact = () => {
   return (
-    <div className="h-auto md:h-[80px] z-300 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400 text-white py-4 absolute bottom-0 left-0 right-0 shadow-xl animate-gradient-x">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-        {/* Left Column */}
-        <div className="mb-4 md:mb-0 text-center md:text-left flex flex-col md:flex-row gap-3 items-center">
-          <p className="font-montserrat text-sm font-semibold text-white drop-shadow-lg">
-            Designed & Developed with ✨ by
+    <div className=" bottom-0 left-0 right-0 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-800 py-5 shadow-inner">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        {/* Left */}
+        <div className="text-center md:text-left flex flex-col md:flex-row gap-4 items-center">
+          <p className="font-montserrat text-sm text-gray-100">
+            Designed with ❤️ by
           </p>
           <a
             href="https://wa.me/918886921826?text=Hello%20Pro%20Daddy%20Agency"
             className="transition transform hover:scale-110"
           >
-            <button className="bg-red-600 text-white font-bold py-2 px-6 rounded-full shadow-xl border-2 border-yellow-400 hover:scale-105 hover:shadow-yellow-400/70 transition-all">
+            <button className="bg-yellow-400 text-black font-bold py-2 px-5 rounded-full shadow-lg hover:shadow-yellow-500/70 transition-all">
               Eswar – Pro Daddy Agency
             </button>
           </a>
         </div>
 
-        {/* Right Column */}
-        <div className="text-center md:text-right open-sans">
-          <p className="text-sm text-white font-medium drop-shadow-md">
-            © {new Date().getFullYear()}{" "}
-            <a
-              href={website_url}
-              target="_blank"
-              className="font-semibold hover:text-yellow-200 transition-colors"
-            >
-              {company_name}
-            </a>{" "}
-            – All Rights Reserved.
-          </p>
+        {/* Right */}
+        <div className="text-center md:text-right text-sm text-gray-200">
+          © {new Date().getFullYear()}{" "}
+          <a
+            href={website_url}
+            target="_blank"
+            className="font-semibold hover:text-yellow-300 transition"
+          >
+            {company_name}
+          </a>{" "}
+          – All Rights Reserved.
         </div>
       </div>
     </div>
