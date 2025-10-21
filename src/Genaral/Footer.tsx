@@ -126,7 +126,7 @@ const CopyRightAndContact = () => {
         {/* Left */}
         <div className="text-center md:text-left flex flex-col md:flex-row gap-4 items-center">
           <p className="font-montserrat text-sm text-gray-100">
-            Designed with ❤️ by
+            Designed and Developed by
           </p>
           <a
             href="https://wa.me/918886921826?text=Hello%20Pro%20Daddy%20Agency"

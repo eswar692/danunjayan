@@ -1,10 +1,10 @@
 const phone_number = "9380595645";
 const email = "";
 const whatsapp_number = "919380595645";
-const company_name = "Devi Sri Prasad Astro Center";
-const person_name = "Devi Sri Prasad";
+const company_name = "Maha Mantrika Astro Center";
+const person_name = "Danunjayan Thantri";
 const address = "";
-const website_url = "https://www.devisriprasadastro.com";
+const website_url = "https://www.mahamantrika.in";
 
 export {
   phone_number,
