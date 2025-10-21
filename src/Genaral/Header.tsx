@@ -2,69 +2,83 @@ import { MenuIcon, MessageCircle, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { company_name, phone_number, whatsapp_number } from "./secrete";
+import Marquee from "react-fast-marquee";
 
 const Header = () => {
   return (
     <header className="w-full bg-gray-900">
+      <Title />
       <div className="w-full md:w-[85%] mx-auto flex flex-col gap-6   ">
         <Logo />
       </div>
+      <TextMarquee />
     </header>
   );
 };
 
 export default Header;
 
-// const Title = () => (
-//   <div className="flex flex-row w-full md:flex-row items-center justify-between gap-4">
-//     <h5 className="montserrat font-semibold text-gray-200 text-center md:text-left text-sm md:text-base">
-//       ✨ Any Problem? Connect with us
-//     </h5>
-//     <a
-//       href={`tel://${phone_number}`}
-//       className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold rounded-full shadow-xl transition-transform duration-300 hover:scale-105 montserrat text-sm"
-//     >
-//       Call Now
-//     </a>
-//   </div>
-// );
+const Title = () => (
+  <div className="flex flex-row  md:flex-row items-center justify-between p-2 w-full md:w-[80%] mx-auto md:bg-none bg-gradient-to-r from-purple-800 via-pink-800 to-red-800 shadow-lg mb-0 md:mb-4 ">
+    <h5 className="montserrat font-semibold text-gray-200 text-center md:text-left text-sm md:text-base">
+      ✨ Any Problem? Connect with us
+    </h5>
+    <a
+      href={`tel://${phone_number}`}
+      className="px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold rounded-full shadow-xl transition-transform duration-300 hover:scale-105 montserrat text-sm"
+    >
+      Call Now
+    </a>
+  </div>
+);
 
 const Logo = () => (
-  <div className="relative w-full flex flex-row md:flex-row items-center justify-between gap-0 md:gap-2 bg-gray-900 p-1 py-3 md:p-6 ">
+  <div
+    className="relative w-full flex flex-row md:flex-row items-center justify-between gap-4 
+                  bg-gradient-to-r from-indigo-900 via-purple-800 to-pink-700 
+                  px-4 py-4 md:p-6 shadow-2xl md:rounded-b-2xl"
+  >
     {/* Logo + Text */}
-    <div className=" w-[85%] flex items-center gap-1 md:gap-8">
-      {/*
-      <div className=" w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-2xl ">
+    <div className="flex flex-col md:flex-row items-center md:items-start w-[90%] md:w-[75%] gap-4">
+      {/* Optional Video / Image Logo */}
+      {/* <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-2xl">
         <video
-          src="fb9b120cb8608fc1fa9e08379ead50b1_720w.mp4" // your video path
+          src="fb9b120cb8608fc1fa9e08379ead50b1_720w.mp4"
           autoPlay
           loop
           muted
-          className="border-2 border-purple-500 absolute w-[90px] h-[80px] object-cover rounded-xl transform hover:scale-105 transition-transform duration-500"
+          className="border-2 border-amber-400 w-full h-full object-cover rounded-xl transform hover:scale-105 transition-transform duration-500"
         />
+      </div> */}
 
-      </div>
-       */}
-
-      <div className="flex flex-col text-center md:text-left ">
-        <h1 className="px-2 montserrat font-extrabold text-2xl md:text-3xl text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 drop-shadow-lg text-white">
+      <div className="flex flex-col text-center md:text-left">
+        {/* Company Name */}
+        <h1
+          className="montserrat font-extrabold text-3xl md:text-4xl text-transparent bg-clip-text 
+                        bg-gradient-to-r from-rose-100 via-fuchsia-100 to-amber-100 drop-shadow-xl"
+        >
           {company_name}
         </h1>
-        <p className="open-sans text-sm md:text-base text-gray-300 italic -mt-1">
+
+        {/* Since Text */}
+        <p className="open-sans text-sm md:text-base text-amber-200 italic -mt-1">
           Since 1950
         </p>
-        <p className="open-sans text-xs md:text-sm text-gray-400 mt-1 poppins max-w-[300px] leading-snug">
+
+        {/* Description */}
+        <p className="open-sans text-xs md:text-sm text-amber-100 mt-2 poppins max-w-[350px] leading-snug">
           Best astrology services for{" "}
-          <span className="text-purple-400 font-semibold">accurate</span> and{" "}
-          <span className="text-pink-400 font-semibold">
+          <span className="text-rose-300 font-semibold">accurate</span> and{" "}
+          <span className="text-fuchsia-300 font-semibold">
             personalized guidance
-          </span>
+          </span>{" "}
+          to help you navigate life’s challenges and find clarity.
         </p>
       </div>
     </div>
 
     {/* Menu */}
-    <div className="w-[15%] flex justify-center items-center mt-4 md:mt-0">
+    <div className="w-[10%] md:w-[20%] flex justify-center items-center mt-4 md:mt-0">
       <Menu />
     </div>
   </div>
@@ -182,21 +196,24 @@ const MobileMenu = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
   );
 };
 
-// const TextMarquee = () => (
-//   <div
-//     className="overflow-hidden
-//  bg-gradient-to-l from-green-300 via-blue-300 to-orange-300
-
-// "
-//   >
-//     <Marquee
-//       speed={50}
-//       className="whitespace-nowrap text-black  py-2 open-sans text-md md:text-base tracking-wide"
-//     >
-//       🌙 Facing issues like Love Breakup, Marriage Disputes, Relationship
-//       Conflicts, or wanting to Get Your Love Back? 🔮 Consult for Vashikaran
-//       solutions to attract your desired partner or resolve personal issues.
-//       Contact a trusted Astrologer today.
-//     </Marquee>
-//   </div>
-// );
+const TextMarquee = () => (
+  <div
+    className="
+      overflow-hidden
+      bg-gradient-to-r
+      from-indigo-200 via-purple-200 to-pink-200
+      shadow-md
+      md:rounded-md
+    "
+  >
+    <Marquee
+      speed={50}
+      className="whitespace-nowrap text-black py-2 font-medium text-md md:text-base tracking-wide drop-shadow-sm"
+    >
+      🌙 Facing issues like Love Breakup, Marriage Disputes, Relationship
+      Conflicts, or wanting to Get Your Love Back? 🔮 Consult for Vashikaran
+      solutions to attract your desired partner or resolve personal issues.
+      Contact a trusted Astrologer today.
+    </Marquee>
+  </div>
+);

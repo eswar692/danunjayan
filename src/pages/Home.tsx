@@ -18,11 +18,13 @@ import {
   whatsapp_number,
 } from "../Genaral/secrete";
 import VideoView from "../Genaral/VideoView";
+import ImageGrid from "../Genaral/ImageGrid";
 
 const Home = () => {
   return (
     <div className="flex flex-col  bg-orange-200 w-full h-full">
       <VideoView />
+      <ImageGrid />
       <CardCarousel />
       <Problems />
       <AboutAstrologer />
@@ -89,7 +91,7 @@ const Problems = () => {
 
   return (
     <motion.div
-      className="grid md:grid-cols-3 gap-8 w-full px-2 md:max-w-7xl md:mx-auto"
+      className="grid md:grid-cols-3 gap-10 w-full px-4 md:max-w-7xl md:mx-auto"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -97,29 +99,27 @@ const Problems = () => {
       {problems.map((problem, index) => (
         <div
           key={index}
-          className="flex flex-col items-center 
-            bg-gray-900 border border-gray-700 rounded-3xl 
-            shadow-xl overflow-hidden text-white 
-            hover:scale-105 transition-transform duration-500 
-            hover:shadow-indigo-500/50"
+          className="flex flex-col items-center bg-gradient-to-b from-gray-950 via-indigo-950/90 to-purple-900/80 
+                 border border-purple-700/40 rounded-3xl shadow-2xl overflow-hidden text-white
+                 hover:scale-[1.03] transition-all duration-500 hover:shadow-pink-500/40 relative group"
         >
           {/* Image */}
           <div className="relative w-full h-80 overflow-hidden">
             <img
               src={problem.img}
               alt={problem.title}
-              className="h-full w-full object-cover transform hover:scale-110 transition duration-700 filter brightness-75"
+              className="h-full w-full object-cover transform group-hover:scale-110 transition duration-700 brightness-75"
             />
-            {/* Overlay dark layer for better text visibility */}
-            <div className="absolute inset-0 bg-black/30"></div>
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
           </div>
 
           {/* Text */}
-          <div className="p-6 flex flex-col items-center text-center space-y-3">
-            <h3 className="text-2xl font-extrabold montserrat drop-shadow-md tracking-wide text-white">
+          <div className="p-6 flex flex-col items-center text-center space-y-3 z-10">
+            <h3 className="text-2xl font-extrabold montserrat bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-300 bg-clip-text text-transparent drop-shadow-lg">
               {problem.title}
             </h3>
-            <p className="text-base opacity-90 poppins leading-relaxed text-gray-200">
+            <p className="text-base text-gray-200 poppins leading-relaxed max-w-[280px]">
               {problem.desc}
             </p>
           </div>
@@ -133,16 +133,22 @@ const Problems = () => {
           >
             <button
               className="montserrat flex items-center gap-2 
-                bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 
-                text-white font-semibold px-7 py-3 rounded-full shadow-lg 
-                hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 
-                hover:shadow-pink-400/50 hover:scale-105 
-                transition-all duration-300"
+                     bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+                     text-white font-semibold px-7 py-3 rounded-full shadow-lg
+                     hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 
+                     hover:shadow-purple-500/50 hover:scale-105 
+                     transition-all duration-300"
             >
               <Phone className="w-5 h-5" />
-              Online Chatting
+              Talk on WhatsApp
             </button>
           </a>
+
+          {/* Glow ring effect */}
+          <div
+            className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 
+                      bg-gradient-to-r from-pink-500/20 via-purple-400/20 to-indigo-400/20 blur-xl"
+          ></div>
         </div>
       ))}
     </motion.div>
@@ -321,21 +327,25 @@ const AstrologyServicesModern = () => {
   ];
 
   return (
-    <section className="mt-2 mb-2 relative py-20 px-6 overflow-hidden bg-gradient-to-br from-purple-900 via-pink-800 to-red-700">
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-fuchsia-800">
+      {/* Subtle texture + animated glow layers */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[400px] bg-indigo-500/20 rounded-full blur-[140px] animate-pulse delay-3000"></div>
 
-      <div className="relative max-w-7xl mx-auto text-center">
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto text-center z-10">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-white mb-16 montserrat drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+          className="text-4xl md:text-5xl font-extrabold montserrat text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-pink-300 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] mb-16"
         >
           ✨ Premium Astrology Services ✨
         </motion.h2>
 
+        {/* Service Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {services.map((service, idx) => (
             <motion.div
@@ -344,30 +354,49 @@ const AstrologyServicesModern = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-6 group hover:scale-105 transition-transform duration-500"
+              className="relative rounded-3xl p-8 
+                     bg-gradient-to-b from-white/15 via-white/10 to-transparent
+                     border border-white/20 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]
+                     hover:scale-105 hover:shadow-pink-500/40 
+                     transition-all duration-500 group"
             >
-              {/* Service Image */}
+              {/* Image with glow ring */}
               <div className="relative w-32 h-32 mx-auto mb-6">
                 <img
                   src={service.img}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-full border-4 border-pink-300 shadow-lg"
+                  className="w-full h-full object-cover rounded-full border-4 border-pink-400 shadow-lg"
                 />
-                {/* Glow Ring */}
                 <span className="absolute inset-0 rounded-full bg-pink-400/40 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></span>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-white mb-4 montserrat tracking-wide">
+              <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-300 to-amber-200 montserrat mb-4 tracking-wide drop-shadow-md">
                 {service.title}
               </h3>
 
+              {/* Description (optional) */}
+              {/* {service.desc && (
+            <p className="text-sm text-gray-200/90 poppins leading-relaxed mb-6">
+              {service.desc}
+            </p>
+          )} */}
+
               {/* Call Button */}
               <a href={`tel:${phone_number}`}>
-                <button className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 text-white font-semibold py-3 rounded-full shadow-lg hover:shadow-pink-400/50 hover:scale-105 transition-all duration-300">
+                <button
+                  className="flex items-center justify-center gap-2 w-full 
+                               bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+                               text-white font-semibold py-3 rounded-full 
+                               shadow-lg hover:shadow-pink-400/50 hover:scale-105 
+                               transition-all duration-300"
+                >
                   <Phone className="w-5 h-5" /> Call Now
                 </button>
               </a>
+
+              {/* Floating glow aura */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-fuchsia-400/10 via-pink-400/10 to-amber-300/10 opacity-0 group-hover:opacity-100 blur-3xl transition-all duration-700"></div>
             </motion.div>
           ))}
         </div>
@@ -411,21 +440,22 @@ const AllServicesModern = () => {
   ];
 
   return (
-    <section className="relative py-20 px-6 overflow-hidden bg-gradient-to-br from-purple-900 via-pink-800 to-red-700">
-      {/* Sparkles / Cosmic effect */}
+    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-[#2e003e] via-[#5c005c] to-[#8e0e00]">
+      {/* Subtle cosmic texture */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+        <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-15"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto text-center">
         <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-6xl font-extrabold text-white mb-16 montserrat drop-shadow-[0_0_25px_rgba(255,255,255,0.6)]"
+          className="text-4xl md:text-6xl font-extrabold text-white mb-20 montserrat tracking-wide drop-shadow-[0_0_25px_rgba(255,200,255,0.5)]"
         >
-          🌟 Premium Astrology Services 🌟
+          🔮 Premium Astrology Services 🔮
         </motion.h2>
 
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -434,14 +464,17 @@ const AllServicesModern = () => {
               key={id}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: id * 0.15 }}
+              transition={{ duration: 0.7, delay: id * 0.15 }}
               viewport={{ once: true }}
-              className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,100,150,0.6)] transition-all duration-500 group"
+              className="relative bg-white/10 backdrop-blur-2xl border border-white/10 rounded-3xl p-10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] 
+                     hover:scale-[1.04] hover:shadow-[0_0_40px_rgba(255,120,200,0.5)] transition-all duration-500 group"
             >
-              {/* Icon Glow */}
-              <div className="flex justify-center mb-6 relative">
-                <service.icon className="w-16 h-16 text-pink-400 drop-shadow-[0_0_15px_rgba(255,100,150,0.8)] group-hover:scale-110 transition-transform duration-300" />
-                <span className="absolute inset-0 rounded-full bg-pink-400/40 blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></span>
+              {/* Icon with floating glow */}
+              <div className="flex justify-center mb-8 relative">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="w-24 h-24 bg-pink-500/30 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                </div>
+                <service.icon className="w-16 h-16 text-pink-400 drop-shadow-[0_0_20px_rgba(255,100,150,0.7)] group-hover:scale-110 transition-transform duration-400" />
               </div>
 
               {/* Title */}
@@ -450,7 +483,7 @@ const AllServicesModern = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-200 mb-8 text-sm open-sans">
+              <p className="text-gray-200 mb-10 text-base leading-relaxed open-sans">
                 {service.desc}
               </p>
 
@@ -459,7 +492,11 @@ const AllServicesModern = () => {
                 <motion.button
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
-                  className="montserrat flex items-center justify-center gap-3 w-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-semibold py-3 rounded-full shadow-lg hover:shadow-[0_0_25px_rgba(255,100,150,0.8)] transition-all duration-300"
+                  className="montserrat flex items-center justify-center gap-3 w-full 
+                        bg-gradient-to-r from-fuchsia-600 via-pink-500 to-purple-600 
+                        text-white font-semibold py-3 rounded-full shadow-lg 
+                        hover:shadow-[0_0_30px_rgba(255,120,200,0.8)] 
+                        transition-all duration-300"
                 >
                   <Phone className="w-5 h-5" />
                   Contact Now
