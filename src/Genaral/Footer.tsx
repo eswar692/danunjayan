@@ -29,7 +29,7 @@ export default function Footer() {
   ];
 
   return (
-    <motion.footer className="z-50 relative mt-10 text-white pt-20 w-full overflow-hidden bg-gradient-to-br from-[#190028] via-[#3a0066] to-[#000814]">
+    <motion.footer className="z-[9999] relative mt-10 text-white pt-20 w-full overflow-hidden bg-gradient-to-br from-[#190028] via-[#3a0066] to-[#000814]">
       {/* Soft floating glows */}
       <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-amber-400/10 rounded-full blur-3xl animate-ping"></div>
